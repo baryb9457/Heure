@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+
+   
+
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;padding: 0;
+        }
+        body{
+            display: block;
+            background-color:color-mix(in hsl shorter hue, white percentage, red 50%);
+            width: 100vw;
+            height: auto;
+            place-items: center;
+            background-color: black;
+            color: white;
+            overflow: hidden;
+            border-radius: 80px;
+        }
+
+        nav{
+            outline: groove teal;
+            width: 100%;
+            text-align: center;
+            height: 100%;
+            background-color: aqua;
+        }
+        div{
+            width: 100%;
+            height: 770px;
+            background-color: black;
+            display: flex;
+            border-radius: 80%;
+            place-content: center;
+
+        }
+        p{
+            margin: auto;
+            font-size: larger;
+            text-align: center;
+            cursor: no-drop;
+            /* animation: rever 2s linear infinite; */
+
+        }
+    
+      
+       #sp{
+        font-size: 80px;
+        position: relative;
+        margin-left: 12px;
+        margin-right: 12px;
+        text-align: center;
+
+       }
+
+        #heure, #minutes, #secondes{
+            color: white;
+            font-size: 100px;
+            position: relative;
+            margin-left: 12px;
+            margin-right: 12px;
+            text-align: center;
+
+        }
+        #secondes{
+            content: "";
+            animation: anmS 1s linear infinite;
+            z-index: unset;
+            position: relative;
+            transition: 0.3s ease;
+        }
+        @keyframes anmS {
+            0%{
+                transform: scale(1.7);
+                overflow: hidden;
+            }100%{
+                transform: scale(1);
+                overflow: hidden;
+            }
+        }
+
+    
+        footer{
+            width: 100%;
+            height: 100vh;
+            background-color: skyblue;
+            place-items: center;
+        }
+        
+        .cont{
+            width: fit-content;
+            height: fit-content;
+            place-self: center;
+            position: relative;
+            background-color: grad;
+            border: 12px  solid ;
+            border-style: double;
+            border-radius: 12px;
+            box-shadow:  0px 42px 0px 0px white;
+        }
+
+      .Horloge{
+        text-align: center;
+        text-decoration: none;
+        color: red;
+        place-self: center;
+        position: absolute;
+        margin-top: 18%;
+      }
+      li{
+        text-align: center;
+        text-decoration: none;
+        list-style: none;
+        text-shadow: 0px 12px 10px 0px teal;
+        outline: double;
+        outline-color: cadetblue;
+        animation: horloge 3S linear infinite;
+        interest-delay: unset;
+      }
+      @keyframes horloge {
+        0%{
+            color: green;
+        } 50%{
+            color: orange;
+        }100%{
+            color: red;
+        }
+      }
+
+        
+        
+
+    </style>
+</head>
+<body>
+     <nav>
+        <ul><H1>Time</H1></ul>
+    </nav>
+
+    <div>
+       <div class="cont">
+
+        <p id="heure" style="color: green;">00</p>
+        <p id="sp">|</p>
+        <p id="minutes" style="color: orange;">00</p>
+        <p  id="sp">|</p>
+        <p id="secondes" style="color: red;" >00</p>
+       </div>
+               <span  class="Horloge" ><li>Horloge Kam_sdwm</li></span>
+
+    </div>
+
+
+
+
+    <footer><p>Copyrigth@Kam_sdwm</p></footer>
+
+        <script>
+        const hour = document.getElementById('heure');
+        const minutes = document.getElementById('minutes');
+        const secondes = document.getElementById('secondes');
+
+        const hourS = document.querySelector('#heure');
+        const minuteS = document.querySelector('#minutes');
+        const secondeS = document.querySelector('#secondes');
+
+        function timeReal() {
+        const maintenant = new Date();
+
+            hour.textContent =  String(maintenant.getHours()).padStart(2, '0')
+            minutes.textContent = String(maintenant.getMinutes()).padStart(2, '0')
+            secondes.textContent = String(maintenant.getSeconds()).padStart(2, '0')
+        }
+
+        timeReal()
+        setInterval(timeReal, 1000);
+      
+
+      function ScaleItems(styleItems){
+        styleItems  = secondeS;
+        styleItems.length ++;
+        styleItems.style.scale(1.7)
+      }
+      ScaleItems()
+      setInterval(ScaleItems, 1000)
+
+       
+    </script>
+
+</body>
+
+</html>
